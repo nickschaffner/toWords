@@ -4,4 +4,4 @@ toWords is a jQuery Plugin wich allows you to convert a numeric value to its equ
 
 toWords will even take away every non-numeric character on the string, so if you type "iPhone 4S" the output will be "four".
 
-**note: toWords will only work fine with integer values higher than 0.
+**note: toWords will only work fine with integer values higher than 0.**
