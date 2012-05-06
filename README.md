@@ -8,4 +8,4 @@ toWords will even take away every non-numeric character on the string, so if you
 
 Download any of the two versions of toWords ( standard or minified ) and import it as shown below:
 
-'<html> tag'
+	code tag
