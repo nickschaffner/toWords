@@ -8,4 +8,18 @@ toWords will even take away every non-numeric character on the string, so if you
 
 Download any of the two versions of toWords ( standard or minified ) and import it as shown below:
 
-	code tag <ht> <html>
+	<script src="http://code.jquery.com/jquery-latest.js"></script> 
+	<script src="js/towords.x.x.jquery.js"></script>
+
+To use it just select the origin and call toWords to make its magic.
+
+	$( 'div.origin' ).toWords();
+
+This little snippet will convert any number from every div with the class of 'origin' and append it to a div with the class of 'destination'.
+
+### Example:
+
+	<div class="origin"> 56 </div>
+	<div class="destination"> </div>
+
+	$( 'div.origin' ).toWords();
