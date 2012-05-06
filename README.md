@@ -19,7 +19,11 @@ This little snippet will convert any number from every div with the class of 'or
 
 ### Example:
 
+#### <html>
+
 	<div class="origin"> 56 </div>
 	<div class="destination"> </div>
+
+#### <script>
 
 	$( 'div.origin' ).toWords();
