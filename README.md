@@ -19,8 +19,30 @@ This little snippet will convert any number from every div with the class of 'or
 
 ### Example:
 
+#### <html>
+
 	<div class="origin"> 56 </div>
 	<div class="destination"> </div>
 
+#### <script>
 
 	$( 'div.origin' ).toWords();
+
+This will output:
+
+	fifty-six
+
+## Flexibility
+
+We can also give to toWords an object to extend its capabilities
+
+	$( 'div.origin' ).toWords({
+		'destination': $( 'div.new-destination' ),
+		'reverse': true
+	});
+      
+destination will change the output target, meanwhile if reverse is true it will read the number from right to left.
+
+### Example: 12
+
+	twenty-one
