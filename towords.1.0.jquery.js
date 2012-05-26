@@ -1,5 +1,5 @@
 /*
-*	String Literal jQuery Plugin v1.0 beta
+*	toWords jQuery Plugin v1.1 beta
 *	tested on jQuery v.1.7.2
 *
 *
@@ -23,7 +23,7 @@ if ( typeof Object.create !== 'function' ){
 
 (function( $, undefined ){
 
-	var stringLiteral = {
+	var toWords = {
 
 		init: function( node, config ){
 			this.elem = node;
@@ -35,6 +35,8 @@ if ( typeof Object.create !== 'function' ){
 
 			this.createString( this.number );
 			this.appendString();
+
+			this.callback();
 		},
 
 		createString: function( n ){
@@ -109,28 +111,38 @@ if ( typeof Object.create !== 'function' ){
 		},
 
 		appendString: function(){
-			$( this.config.destination ).text( this.stringed );
+			var destination = this.config.destination;
+
+			if ( !destination ){
+				destination = this.$elem;
+			}
+
+			$( destination ).text( this.stringed );
 		},
 
 		updateSettings: function( config ){
-			this.config = $.extend( {}, $.fn.stringLiteral.config, config );
+			this.config = $.extend( {}, $.fn.toWords.config, config );
+		},
+
+		callback: function(){
+			this.config.callback();
 		}
 
 	}
 
-	$.fn.stringLiteral = function( config ){
+	$.fn.toWords = function( config ){
 
 		return this.each( function(){
-			var sl = Object.create( stringLiteral );
+			var sl = Object.create( toWords );
 
 			sl.init( this, config );
 		});
 		
 	}
 
-	$.fn.stringLiteral.config = {
-		'destination': $( '.destination' ),
-		'reverse': false
+	$.fn.toWords.config = {
+		reverse: false,
+		callback: function(){}
 	}
 
 })( jQuery );

@@ -46,3 +46,14 @@ destination will change the output target, meanwhile if reverse is true it will 
 ### Example: 12
 
 	twenty-one
+
+
+
+
+
+## Changelog
+
+**1.1
+
+> Option of callback function added.
+> Code improvements
