@@ -55,5 +55,7 @@ destination will change the output target, meanwhile if reverse is true it will 
 
 **1.1**
 
++ Changed Object name that made the plugin impossible to be used.
 + Option of callback function added.
-+ Code improvements
++ Code improvements.
++ General bug fixes.
