@@ -6,7 +6,7 @@
 *	author: Ricardo Andrés Bello
 *	website: http://www.ricardoaandres.com
 *	github profile: http://www.github.com/ricardoaandres
-*	date: May, 2012
+*	original publish date: May, 2012
 */
 
 
