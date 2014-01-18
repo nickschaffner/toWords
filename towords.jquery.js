@@ -21,8 +21,7 @@
 
   $.fn.toWords.config = {
     reverse: false,
-    appendTo: $('#towords-destination'),
-    self: true,
+    appendTo: undefined,
     callback: function(){}
   }
 
@@ -30,13 +29,13 @@
     var stringed = '', zeros = '';
     var times = number.length;
 
-    if ( times <= 9 ){
+    if (times <= 9) {
       for ( var cntr = 9 - times; cntr !== 0; cntr-- ){
         zeros += '0';
       }
 
-      if ( config.reverse ){
-        number = n.reverse().join( '' );
+      if (config.reverse) {
+        number = number.reverse().join( '' );
         number = ( zeros + number ).split( '' );
       }else{
         number = zeros + number.join( '' );
@@ -97,7 +96,13 @@
   }
 
   function appendString(string, config, elem) {
-    if (config.self) {
+    if (config.appendTo) {
+      if (typeof(appendTo) == 'string') {
+        $(appendTo).append(string);
+      }else{
+        appendTo.append(string);
+      }
+    }else{
       $(elem).text(string);
     }
   }
