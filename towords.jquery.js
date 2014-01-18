@@ -12,9 +12,10 @@
     var config = $.extend({}, $.fn.toWords.config, options);
     var number = 0;
     return this.each(function(){
-      // plugin code
-      number = $(this).text().replace(/[^0-9]/g, '').split('');
-      stringedNumber = createString(number, config);
+      var isNegative = $(this).text().substring(0, 1) == '-' ? true : false;
+      var number = $(this).text().replace(/[^0-9)]/g, '').split('');
+
+      stringedNumber = createString(number, isNegative, config);
       appendString(stringedNumber, config, $(this));
     });
   }
@@ -25,7 +26,7 @@
     callback: function(){}
   }
 
-  function createString(number, config) {
+  function createString(number, isNegative, config) {
     var stringed = '', zeros = '';
     var times = number.length;
 
@@ -55,7 +56,7 @@
       stringed = 'By now max number is 999,999,999';
     }
 
-    return stringed;
+    return (isNegative) ? 'minus ' + stringed : stringed;
   }
 
   function stringNumber(numb1, numb2, numb3) {
