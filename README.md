@@ -1,59 +1,84 @@
-# [toWords jQuery Plugin](http://www.ricardoaandres.com/code/towords)
+#toWords jQuery Plugin
 
-toWords is a jQuery Plugin wich allows you to convert a numeric value to its equivalent literal string. From 0 to 999,999,999.
 
-toWords will even take away every non-numeric character on the string, so if you type "iPhone 4S" the output will be "four".
+toWords is a jQuery Plugin wich allows you to convert a numeric value to its equivalent literal string. From -999,999,999 to 999,999,999.
 
-**note: toWords will only work fine with integer values higher than 0.**
+toWords will even take away every non-numeric character on the string, so if you type "Pink iPhone 5C" the output will be "five".
 
-Download any of the two versions of toWords ( standard or minified ) and import it as shown below:
+Import it right after jQuery:
 
-	<script src="http://code.jquery.com/jquery-latest.js"></script> 
-	<script src="js/towords.x.x.jquery.js"></script>
+    <script src="http://code.jquery.com/jquery-latest.js"></script> 
+	<script src="js/libs/towords.jquery.js"></script>
 
 To use it just select the origin and call toWords to make its magic.
 
-	$( 'div.origin' ).toWords();
+	$('.number').toWords();
 
-This little snippet will convert any number from every div with the class of 'origin' and append it to a div with the class of 'destination'.
+This little snippet will convert any number from every div with the class 'number' to their respective string literal.
+
+
 
 ### Example:
 
-#### <html>
+#### <html\>
 
-	<div class="origin"> 56 </div>
-	<div class="destination"> </div>
+    <div class="number">23</div>
+	<div class="number">-23543</div>
+	<div class="number">2523</div>
+	<div class="number">-463423</div>
+	<div class="number">2365858</div>
+	
+#### <script\>
 
-#### <script>
-
-	$( 'div.origin' ).toWords();
+    $( 'div.number' ).toWords();
 
 This will output:
 
-	fifty-six
+    twenty-three
+    minus twenty-three thousand five hundred forty-three
+    two thousand five hundred twenty-three
+    minus four hundred sixty-three thousand four hundred twenty-three
+    two million three hundred sixty-five thousand eight hundred fifty-eight
+
+
 
 ## Flexibility
 
 We can also give to toWords an object to extend its capabilities
 
-	$( 'div.origin' ).toWords({
-		'destination': $( 'div.new-destination' ),
+	$( '.number' ).toWords({
+		'appendTo': 'div.destination',
 		'reverse': true
 	});
       
-destination will change the output target, meanwhile if reverse is true it will read the number from right to left.
+appendTo will change the output target, meanwhile if reverse is true it will read the number from right to left.
 
-### Example: 12
+	12 -> twenty-one
 
-	twenty-one
+it is also possible to give toWords a callback function.
 
+    $('.number').toWords(function(){});
+or
 
+	$('.number').toWords({reverse: true}, function(){
+	    console.log('done, honey');
+	});
 
+never stop chaining...
+
+    $('.number').hide().toWords(function(){
+		console.log('Im McLovin');
+    }).addClass('string-literal').fadeIn();
 
 
 ## Changelog
 
-**1.1**
+**0.2**
+
++ Wider range of numbers.
++ Callback function support.
+
+**0.1**
 
 + Changed Object name that made the plugin impossible to be used.
 + Option of callback function added.
