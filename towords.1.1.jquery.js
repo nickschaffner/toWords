@@ -1,12 +1,9 @@
 /*
-*	toWords jQuery Plugin v1.1 beta
-*	tested on jQuery v.1.7.2
+*	toWords jQuery Plugin v0.2
 *
-*
-*	author: Ricardo Andrés Bello
-*	website: http://www.ricardoaandres.com
-*	github profile: http://www.github.com/ricardoaandres
-*	original publish date: May, 2012
+*	author: Ricardo Andrés Bello (@ricardoaandres)
+*	
+*	first release: May, 2012
 */
 
 
