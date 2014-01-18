@@ -8,7 +8,15 @@
 
 (function ($, undefined) {
 
-  $.fn.toWords = function(options) {
+  $.fn.toWords = function(paramA, paramB) {
+    if (typeof(paramA) == 'function') {
+      options = {};
+      callback = paramA;
+    }else{
+      options = paramA;
+      callback = paramB;
+    }
+
     var config = $.extend({}, $.fn.toWords.config, options);
     var number = 0;
     return this.each(function(){
@@ -17,13 +25,16 @@
 
       stringedNumber = createString(number, isNegative, config);
       appendString(stringedNumber, config, $(this));
+      
+      if (callback) {
+        callback();
+      }
     });
   }
 
   $.fn.toWords.config = {
     reverse: false,
-    appendTo: undefined,
-    callback: function(){}
+    appendTo: undefined
   }
 
   function createString(number, isNegative, config) {
